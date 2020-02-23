@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\WinAPI wrappers">
+      <UniqueIdentifier>{71ee4688-7c3a-4e44-9bb7-1abc7cf80982}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WinAPI wrappers">
+      <UniqueIdentifier>{8733ade5-49bf-4d32-8219-de1cd59b5443}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RocketLeagueThreadAffinityFixer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessIdByName.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadIdsByProcessId.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="throwIf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="createToolhelp32Snapshot.cpp">
+      <Filter>Source Files\WinAPI wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="getThreadCycleTime.cpp">
+      <Filter>Source Files\WinAPI wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadIdealProcessor.cpp">
+      <Filter>Source Files\WinAPI wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="openThread.cpp">
+      <Filter>Source Files\WinAPI wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessData.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="closeHandle.cpp">
+      <Filter>Source Files\WinAPI wrappers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ProcessIdByName.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadIdsByProcessId.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="throwIf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="createToolhelp32Snapshot.h">
+      <Filter>Header Files\WinAPI wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="getThreadCycleTime.h">
+      <Filter>Header Files\WinAPI wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadIdealProcessor.h">
+      <Filter>Header Files\WinAPI wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="openThread.h">
+      <Filter>Header Files\WinAPI wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="closeHandle.h">
+      <Filter>Header Files\WinAPI wrappers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
