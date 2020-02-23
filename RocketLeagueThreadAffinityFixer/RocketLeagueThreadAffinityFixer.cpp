@@ -5,11 +5,12 @@
 
 #include "ProcessData.h"
 
-bool hasDuplicatedIdealProc(const RocketLeague::ProcessData::ThreadList& threads)
+bool hasDuplicatedIdealProc(const RocketLeague::ProcessData::ThreadList& threads, int count)
 {
     std::unordered_map<DWORD, bool> wasSeenMap;
-    for (const auto& thread : threads)
+    for (int i = 0 ; i < count && i < threads.size() ; ++i)
     {
+        const auto& thread = threads[i];
         if (wasSeenMap.find(thread->getIdealProcessor()) != wasSeenMap.end())
         {
             return true;
@@ -22,7 +23,7 @@ bool hasDuplicatedIdealProc(const RocketLeague::ProcessData::ThreadList& threads
 
 int main()
 {
-    const auto numberOfThreadsToFix = min(std::thread::hardware_concurrency(), 3);
+    const auto numberOfThreadsToFix = std::thread::hardware_concurrency() - 1;
     while (true)
     {
         try
@@ -38,23 +39,19 @@ int main()
                 {
                     std::cout << *thread << "\n";
                 }
-				if (hasDuplicatedIdealProc(threads))
+				if (hasDuplicatedIdealProc(threads, numberOfThreadsToFix))
 				{
 					std::cout << "Detected duplicated processors, changing ideal processors.\n";
                     std::cout << "Threads after change:\n";
-					for (int i = 0; i < threads.size(); i++)
+					for (int i = 0; i < numberOfThreadsToFix && i < threads.size(); ++i)
 					{
-						auto thread = *threads[i];
-                        try
-                        {
-							thread.setIdealProcessor(i);
-                        }
-                        catch (std::exception & ex)
-                        {
-			                std::cerr << ex.what() << "\n";
-                        }
-						std::cout << thread << "\n";
+					    threads[i]->trySetIdealProcessor(i);
+						std::cout << *threads[i] << "\n";
 					}
+                    for (int i = numberOfThreadsToFix; i < threads.size(); ++i)
+                    {
+					    threads[i]->trySetIdealProcessor(numberOfThreadsToFix);
+                    }
 				}
                 Sleep(2000);
             }

@@ -18,6 +18,7 @@ struct ThreadData
     double getCpuUsage() const;
     DWORD getIdealProcessor() const;
     void setIdealProcessor(DWORD idealProcessor);
+    void trySetIdealProcessor(DWORD idealProcessor);
 
     static bool compareByCpuUsage(const ThreadData& a, const ThreadData& b);
 

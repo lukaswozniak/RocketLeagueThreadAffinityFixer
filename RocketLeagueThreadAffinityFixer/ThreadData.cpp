@@ -5,6 +5,8 @@
 #include "getThreadCycleTime.h"
 #include "ThreadIdealProcessor.h"
 
+#include <iostream>
+
 namespace RocketLeague
 {
 
@@ -43,6 +45,16 @@ void ThreadData::setIdealProcessor(DWORD idealProcessor)
 {
 	setThreadIdealProcessorNum(handle, idealProcessor);
 	this->idealProcessor = idealProcessor;
+}
+
+void ThreadData::trySetIdealProcessor(DWORD idealProcessor)
+try
+{
+	setIdealProcessor(idealProcessor);
+}
+catch (std::exception & ex)
+{
+	std::cerr << ex.what() << "\n";
 }
 
 bool ThreadData::compareByCpuUsage(const ThreadData& a, const ThreadData& b)
