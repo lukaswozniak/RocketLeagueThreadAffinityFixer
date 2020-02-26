@@ -18,11 +18,6 @@ ThreadData::ThreadData(ThreadId id) : id(id)
 	idealProcessor = getThreadIdealProcessorNum(handle);
 }
 
-ThreadData::~ThreadData()
-{
-	closeHandle(handle);
-}
-
 void ThreadData::measureCurrentCpuUsage()
 {
 	prevCycleTime = cycleTime;
@@ -38,6 +33,16 @@ double ThreadData::getCpuUsage() const
 
 DWORD ThreadData::getIdealProcessor() const
 {
+	return idealProcessor;
+}
+
+DWORD ThreadData::getIdealProcessor()
+{
+	try
+	{
+		idealProcessor = getThreadIdealProcessorNum(handle);
+	}
+	catch (...)	{	}
 	return idealProcessor;
 }
 

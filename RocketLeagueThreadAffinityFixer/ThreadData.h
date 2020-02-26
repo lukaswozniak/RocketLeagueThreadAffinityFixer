@@ -12,11 +12,11 @@ struct ThreadData
     ThreadId id;
 
     ThreadData(ThreadId id);
-    ~ThreadData();
 
     void measureCurrentCpuUsage();
     double getCpuUsage() const;
     DWORD getIdealProcessor() const;
+    DWORD getIdealProcessor();
     void setIdealProcessor(DWORD idealProcessor);
     void trySetIdealProcessor(DWORD idealProcessor);
 

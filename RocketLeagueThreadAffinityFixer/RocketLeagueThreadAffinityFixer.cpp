@@ -10,7 +10,7 @@ bool hasDuplicatedIdealProc(const RocketLeague::ProcessData::ThreadList& threads
     std::unordered_map<DWORD, bool> wasSeenMap;
     for (int i = 0 ; i < count && i < threads.size() ; ++i)
     {
-        const auto& thread = threads[i];
+        auto& thread = threads[i];
         if (wasSeenMap.find(thread->getIdealProcessor()) != wasSeenMap.end())
         {
             return true;
@@ -50,7 +50,11 @@ int main()
 					}
                     for (int i = numberOfThreadsToFix; i < threads.size(); ++i)
                     {
-					    threads[i]->trySetIdealProcessor(numberOfThreadsToFix);
+                        threads[i]->trySetIdealProcessor(numberOfThreadsToFix);
+                        if (i + 1 < threads.size())
+                        {
+					        threads[++i]->trySetIdealProcessor(numberOfThreadsToFix - 1);
+                        }
                     }
 				}
                 Sleep(2000);
