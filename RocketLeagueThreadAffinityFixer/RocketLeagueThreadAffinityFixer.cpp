@@ -33,7 +33,10 @@ int main()
             {
                 rlProcessData.updateThreadsListAndMeasurements();
                 auto threads = rlProcessData.getThreadsSortedByUsageDescending();
-                threads.resize(numberOfThreadsToFix);
+                if (numberOfThreadsToFix < threads.size())
+                {
+                    threads.resize(numberOfThreadsToFix);
+                }
                 std::cout << "Found threads:\n";
                 for (const auto& thread : threads)
                 {

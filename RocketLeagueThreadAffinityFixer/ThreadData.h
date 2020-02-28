@@ -12,6 +12,7 @@ struct ThreadData
     ThreadId id;
 
     ThreadData(ThreadId id);
+    ~ThreadData();
 
     void measureCurrentCpuUsage();
     double getCpuUsage() const;

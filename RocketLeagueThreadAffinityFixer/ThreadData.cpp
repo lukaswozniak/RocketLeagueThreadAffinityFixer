@@ -18,6 +18,11 @@ ThreadData::ThreadData(ThreadId id) : id(id)
 	idealProcessor = getThreadIdealProcessorNum(handle);
 }
 
+ThreadData::~ThreadData()
+{
+	closeHandle(handle);
+}
+
 void ThreadData::measureCurrentCpuUsage()
 {
 	prevCycleTime = cycleTime;
